@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'rest_framework',
     'home',
+    'products'
 ]
 
 MIDDLEWARE = [
@@ -114,7 +115,7 @@ LOGGING = {
             },
         },
     "loggers": {
-        "django": {
+        "log": {
             "handlers": ["logger"],
             "level": "ERROR",
             "propagate": True,

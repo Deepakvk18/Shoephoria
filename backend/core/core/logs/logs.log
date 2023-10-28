@@ -1,0 +1,1116 @@
+Internal Server Error: /schema/swagger-ui/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'shoephoria.django_session' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\authentication.py", line 127, in authenticate
+    if not user or not user.is_active:
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\utils\functional.py", line 266, in inner
+    self._setup()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\utils\functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+                    ^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'shoephoria.django_session' doesn't exist")
+"GET /schema/swagger-ui/ HTTP/1.1" 500 248452
+Internal Server Error: /schema/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'shoephoria.django_session' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\authentication.py", line 127, in authenticate
+    if not user or not user.is_active:
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\utils\functional.py", line 266, in inner
+    self._setup()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\utils\functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+                    ^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'shoephoria.django_session' doesn't exist")
+"GET /schema/ HTTP/1.1" 500 248135
+Internal Server Error: /schema/swagger-ui/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'shoephoria.django_session' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\authentication.py", line 127, in authenticate
+    if not user or not user.is_active:
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\utils\functional.py", line 266, in inner
+    self._setup()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\utils\functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+                    ^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'shoephoria.django_session' doesn't exist")
+"GET /schema/swagger-ui/ HTTP/1.1" 500 248454
+Internal Server Error: /api/products/products/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'products_product.subtype_id' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 18, in list
+    return Response(serializer.data, status=status.HTTP_200_OK)
+                    ^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'products_product.subtype_id' in 'field list'")
+"GET /api/products/products/ HTTP/1.1" 500 22275
+Internal Server Error: /api/products/products/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'products_product.subtype_id' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 18, in list
+    return Response(serializer.data, status=status.HTTP_200_OK)
+                    ^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 398, in __iter__
+    self._fetch_all()
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\backends\mysql\base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\MySQLdb\connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'products_product.subtype_id' in 'field list'")
+"GET /api/products/products/ HTTP/1.1" 500 22275
+Internal Server Error: /products-types/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 45, in list
+    serializer = self.get_serializer(queryset, many=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\generics.py", line 110, in get_serializer
+    return serializer_class(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'TypeSerializer' object is not callable
+"GET /products-types/ HTTP/1.1" 500 99543
+Internal Server Error: /products-subtypes/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 45, in list
+    serializer = self.get_serializer(queryset, many=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\generics.py", line 110, in get_serializer
+    return serializer_class(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'SubTypeSerializer' object is not callable
+"GET /products-subtypes/ HTTP/1.1" 500 99735
+Internal Server Error: /products-sizes/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 45, in list
+    serializer = self.get_serializer(queryset, many=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\generics.py", line 110, in get_serializer
+    return serializer_class(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'SizeSerializer' object is not callable
+"GET /products-sizes/ HTTP/1.1" 500 100044
+Internal Server Error: /products-productinventory/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 45, in list
+    serializer = self.get_serializer(queryset, many=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\generics.py", line 110, in get_serializer
+    return serializer_class(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'ProductInventorySerializer' object is not callable
+"GET /products-productinventory/ HTTP/1.1" 500 100289
+Internal Server Error: /products-colors/1/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 142, in update
+    color = Color.objects.get(id=id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+products.models.Color.DoesNotExist: Color matching query does not exist.
+"PUT /products-colors/1/ HTTP/1.1" 500 18572
+Internal Server Error: /products-colors/1/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 142, in update
+    color = Color.objects.get(id=id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+products.models.Color.DoesNotExist: Color matching query does not exist.
+"PUT /products-colors/1/ HTTP/1.1" 500 18572
+Internal Server Error: /products-colors/1/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 142, in update
+    color = Color.objects.get(id=id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+products.models.Color.DoesNotExist: Color matching query does not exist.
+"PUT /products-colors/1/ HTTP/1.1" 500 18572
+Internal Server Error: /products-colors/1/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 142, in update
+    color = Color.objects.get(id=id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+products.models.Color.DoesNotExist: Color matching query does not exist.
+"PUT /products-colors/1/ HTTP/1.1" 500 18572
+Internal Server Error: /products-colors/1/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 147, in update
+    return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+                    ^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    raise AssertionError(msg)
+AssertionError: When a serializer is passed a `data` keyword argument you must call `.is_valid()` before attempting to access the serialized `.data` representation.
+You should either call `.is_valid()` first, or access `.initial_data` instead.
+"PUT /products-colors/1/ HTTP/1.1" 500 18927
+Internal Server Error: /products-colors/1/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 147, in update
+    return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+                    ^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    raise AssertionError(msg)
+AssertionError: When a serializer is passed a `data` keyword argument you must call `.is_valid()` before attempting to access the serialized `.data` representation.
+You should either call `.is_valid()` first, or access `.initial_data` instead.
+"PUT /products-colors/1/ HTTP/1.1" 500 18927
+Internal Server Error: /products-colors/10/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 142, in update
+    color = Color.objects.get(id=id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+products.models.Color.DoesNotExist: Color matching query does not exist.
+"PUT /products-colors/10/ HTTP/1.1" 500 18576
+Internal Server Error: /products-colors/10/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 142, in update
+    color = Color.objects.get(id=id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+products.models.Color.DoesNotExist: Color matching query does not exist.
+"PUT /products-colors/10/ HTTP/1.1" 500 18576
+Internal Server Error: /products-colors/10/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 142, in update
+    color = Color.objects.get(id=id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+products.models.Color.DoesNotExist: Color matching query does not exist.
+"PUT /products-colors/10/ HTTP/1.1" 500 18576
+Internal Server Error: /products-colors/1/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 142, in update
+    color = Color.objects.get(id=id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+products.models.Color.DoesNotExist: Color matching query does not exist.
+"PUT /products-colors/1/ HTTP/1.1" 500 18572
+Internal Server Error: /products-colors/1/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 144, in update
+    logging.info(f"ColorViewSet.update: id={id}")
+    ^^^^^^^^^^^^
+AttributeError: module 'setuptools.logging' has no attribute 'info'
+"PUT /products-colors/1/ HTTP/1.1" 500 18224
+Internal Server Error: /products-colors/1/
+Traceback (most recent call last):
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\shoephoria\backend\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\core\products\views.py", line 144, in update
+    color = Color.objects.get(id=id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\shoephoria\backend\venv\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+products.models.Color.DoesNotExist: Color matching query does not exist.
+"PUT /products-colors/1/ HTTP/1.1" 500 18572

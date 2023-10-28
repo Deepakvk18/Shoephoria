@@ -12,14 +12,17 @@ class Type(models.Model):
     def __str__(self):
         return f"<Type name={self.name}>"
 
+class SubType(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    type = models.ForeignKey(Type, on_delete=models.PROTECT, related_name='subtype')
+
+    def __str__(self):
+        return f"<SubType name={self.name} type={self.type}>"
+
 class ProductInventory(models.Model):
-    variant = models.ManyToOneRel('Variant', on_delete=models.PROTECT, related_name='product_inventory')
+    variant = models.ForeignKey('Variant', on_delete=models.PROTECT, related_name='product_inventory')
     location = models.ForeignKey('Location', on_delete=models.PROTECT, related_name='product_inventory')
     in_stock = models.BigIntegerField()
-    restock_date = models.DateField()
-    sold_qty = models.BigIntegerField()
-    last_restock_date = models.DateField()
-    sold_since_last_restock = models.BigIntegerField()
     actual_price = models.DecimalField(max_digits=8, decimal_places=2, null=False)
     discounted_price = models.DecimalField(max_digits=8, decimal_places=2, null=False)
 
@@ -44,8 +47,9 @@ class Material(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255, null=False, unique=True)
     usage = models.ForeignKey(Usage, on_delete=models.PROTECT, related_name='product')
-    type = models.ForeignKey(Type, on_delete=models.PROTECT, related_name='product')
-    description = models.CharField(max_length=255)
+    subtype = models.ForeignKey(SubType, on_delete=models.PROTECT, related_name='product')
+    description = models.CharField(max_length=510)
+    short_description = models.CharField(max_length=255)
     features = models.JSONField()
 
     def __str__(self):
@@ -75,4 +79,14 @@ class Location(models.Model):
     long = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):
-        return self.name
+        return f"<Location name={self.name}>"
+
+class InventoryDetails(models.Model):
+
+    variant = models.ForeignKey(Variant, on_delete=models.PROTECT, related_name='inventory_details')
+    location = models.ForeignKey(Location, on_delete=models.PROTECT, related_name='inventory_details')
+    new_stocks = models.BigIntegerField()
+    restock_date = models.DateField()
+
+    def __str__(self):
+        return f"<InventoryDetails variant={self.variant} location={self.location} date={self.restock_date}>"

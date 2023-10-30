@@ -4,8 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-.env
-/backend/.env
+.yarn/install-state.gz
 
 # testing
 /coverage
@@ -35,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# environment files
+.env
+/backend/.env

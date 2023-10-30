@@ -1,3 +1,16 @@
+import { inter,
+  montserrat,
+  open_sans,
+  lato,
+  ubuntu_mono,
+  ubuntu,
+  poppins,
+  poltawski_nowy,
+  didact_gothic,
+  titillium_web } from "./public/fonts";
+
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -17,6 +30,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        darkBg: "#0a0a0a",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -71,6 +85,18 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    fontFamily: {
+      inter: ['var(--font-inter)', ...fontFamily.sans],
+      montserrat: ['var(--font-montserrat)', ...fontFamily.serif],
+      open_sans: ['var(--font-open-sans)', ...fontFamily.mono],
+      lato: ['var(--font-lato)', ...fontFamily.sans],
+      ubuntu_mono: ['var(--font-ubuntu-mono)', ...fontFamily.serif],
+      ubuntu: ['var(--font-ubuntu)', ...fontFamily.mono],
+      poppins: ['var(--font-poppins)', ...fontFamily.sans],
+      poltawski_nowy: ['var(--font-poltawski-nowy)', ...fontFamily.serif],
+      didact_gothic: ['var(--font-didact-gothic)', ...fontFamily.mono],
+      titillium_web: ['var(--font-titillium-web)', ...fontFamily.sans],
+    }
   },
   plugins: [require("tailwindcss-animate")],
 }

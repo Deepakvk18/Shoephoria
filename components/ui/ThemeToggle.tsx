@@ -9,10 +9,10 @@ export function ModeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
   
   return (
-    <button className="block w-10 h-6 p-1 bg-white dark:bg-black  dark:ring-white rounded-full" onClick={()=>{ resolvedTheme === 'light' ? setTheme('dark'): setTheme('light') }}>
+    <button className="block w-12 h-6 mx-2 bg-zinc-200 dark:bg-zinc-800 rounded-full items-center" onClick={()=>{ resolvedTheme === 'light' ? setTheme('dark'): setTheme('light') }}>
           { resolvedTheme === "light" 
-            ? <MoonIcon  className="scale-[1.5] rotate-90 dark:scale-0" />
-            : <SunIcon className="scale-[1.5] float-right dark:scale-100" />  }
+            ? <MoonIcon strokeWidth={1} fill="true" className="rounded-full p-1 bg-white dark:scale-0" />
+            : <SunIcon strokeWidth={2} fill="true" className="dark:scale-100 p-1 float-right  bg-darkBg rounded-full" />  }
           
           <span className="sr-only">Toggle theme</span>
         </button>

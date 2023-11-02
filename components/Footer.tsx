@@ -1,5 +1,5 @@
 
-import links, { footerLinks, types, help } from "@/helper/links";
+import links, { footerLinks, types, help } from "@/lib/helper/links";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { logo } from "../public"
@@ -10,17 +10,17 @@ const Footer = () => {
 
 
   return (
-    <footer className="flex flex-col bottom-0 px-4 pt-4 md:px-10 md:pt-10 w-full border-t-2 bg-neutral-800 justify-center text-white">
+    <footer className="flex flex-col border-t-[0.05px] border-gray-100 bottom-0 px-4 pt-4 md:px-10 md:pt-10 w-full bg-neutral-800 justify-center text-white">
         <div className="flex w-full flex-wrap justify-center text-center text-white items-center">
-            <div className="flex flex-row md:w-[40%] items-center">
+            <div className="flex flex-row flex-wrap md:w-[40%] items-center justify-center">
                 <Image
                     src={logo}
                     alt="logo" 
                     height={80}
-                    className="cursor-pointer mr-10 object-contain hover:opacity-80 transition duration-250 ease-in-out"
+                    className="cursor-pointer sm:mr-10 mx-4 object-contain hover:opacity-80 transition duration-250 ease-in-out"
                 /> 
                 <div className="flex flex-col my-4 text-start">
-                     <h1 className="text-4xl font-bold font-ubuntu_mono">ShoePhoria </h1>
+                     <h1 className="text-4xl font-bold font-ubuntu_mono text-center sm:text-start">ShoePhoria </h1>
                      <h3 className="text-sm text-foreground font-montserrat text-gray-400">Shoes for Every Occasion, Every Style</h3>
                 </div>
             </div>
@@ -38,7 +38,7 @@ const Footer = () => {
                     className="py-2 my-1 mx-4 px-4 rounded-lg h-10 w-[80%] sm:w-[40%] max-w-sm border-black text-black dark:text-white"
                 />
                 <Button
-                    className="bg-black text-white dark:bg-white dark:text-black"
+                    className=" bg-black text-white dark:bg-white dark:text-black"
                 >
                     Subscribe
                 </Button>
@@ -77,7 +77,7 @@ const Footer = () => {
                     </Link>
                 )) }
             </div>
-            <div className='flex flex-row my-6 justify-between min-w-[250px]'>
+            <div className='flex flex-row flex-wrap mt-6 justify-between min-w-[250px]'>
                 <Link href={''} className="mr-1 flex rounded-full p-2 h-12 justify-center items-center w-12 bg-black">
                     <Instagram/>
                 </Link>

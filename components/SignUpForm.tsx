@@ -13,7 +13,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import Image from "next/image"
 import { Input } from "@/components/ui/input"
+import { Facebook } from "lucide-react"
 
 const SignUpForm = () => {
 
@@ -72,8 +74,28 @@ const SignUpForm = () => {
                 </FormItem>
             )}
             />
-            <Button className="bg-red-600 text-white" type="submit">Sign Up</Button>
+            <div className="flex flex-col w-full justify-between items-center">
+                
+                <Button className="w-full" type="submit">Signup with Email</Button>
+
+                <div className="flex my-5 w-full justify-between text-white font-lato">
+                    <Button className="py-2 bg-red-600 w-1/2 mx-1 text-white" variant={'secondary'}> 
+                        <Image 
+                            src='/googleIcon.png' 
+                            alt='google' 
+                            width={24}
+                            height={24}
+                        />
+                        <span className="mx-2">Google</span>
+                    </Button>
+                    <Button className="py-2 w-1/2 bg-[#0866ff] mx-1" variant={'ghost'}> 
+                        <Facebook className="scale-125" fill='white' strokeWidth={0}/>
+                        <span className="mx-2">Facebook</span>
+                    </Button>
+                </div>
+            </div>
         </form>
+            
         </Form>
     </div>
   )

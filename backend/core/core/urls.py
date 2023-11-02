@@ -15,14 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 from products.views import products_router
-
+from users.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('products/', include(products_router.urls), name='products'),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
+    re_path(r'^auth/', include('djoser.social.urls')),
+    path('address/', AddressViewSet.as_view({ 'get': 'list', 'get': 'retrieve', 'post': 'create', 'patch': 'update', 'delete': 'destroy' }), name='address'),
+    path('address-type/', AddressTypeViewSet.as_view({ 'get': 'list'}), name='address-type'),
+    path('cart-items/', CartItemsViewSet.as_view({ 'get': 'retrieve', 'post': 'create', 'delete': 'destroy' }), name='cart-items'),
+    path('orders/', OrdersViewSet.as_view({ 'get': 'retrieve', 'post': 'create' }), name='orders'),
+    path('order-items/', OrderItemsViewSet.as_view({ 'get': 'retrieve', 'post': 'create', 'delete': 'destroy' }), name='order-items'),
+    path('wishlist/', WishlistViewSet.as_view({ 'get': 'retrieve', 'post': 'create', 'delete': 'destroy' }), name='wishlist'),
     # YOUR PATTERNS
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     # Optional UI:

@@ -6,7 +6,7 @@ const SignUp = () => {
 
 
   return (
-    <div className='flex w-full lg:min-h-screen'>
+    <div className='flex w-full'>
         <div className='flex flex-col w-full bg-zinc-200 dark:bg-zinc-800 md:w-1/2 lg:w-1/3 justify-center items-center min-h-screen'>
                 <Image
                     src={logo}

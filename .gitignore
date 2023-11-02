@@ -38,3 +38,5 @@ next-env.d.ts
 # environment files
 .env
 /backend/.env
+
+/backend/venv

@@ -10,6 +10,8 @@ load_dotenv()
 
 DEBUG = True
 
+SECRET_KEY = 'django-insecure-m4hzertptylx=cd@lnnw$y40y!w0a1sla!3)k4o3&=74impaxq'
+
 ALLOWED_HOSTS = ['*']
 
 REST_FRAMEWORK = {
@@ -18,7 +20,7 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Shoephoria API',
-    'DESCRIPTION': 'Shoe Marketplace',
+    'DESCRIPTION': 'A Shoe Marketplace',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS

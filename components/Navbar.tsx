@@ -5,7 +5,7 @@ import { logo } from "../public"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Button } from "./ui/button"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ModeToggle } from "./ui/ThemeToggle"
 import { Search } from "lucide-react"
 import { Menu, ShoppingCart, Heart, UserCircle, Home } from "lucide-react"
@@ -21,7 +21,7 @@ const NavBar = () => {
 
 
   return (
-    <nav className="fixed top-0 left-0 flex px-4 md:px-10 w-full py-2 placeholder:text-xs border-b-2 bg-white dark:bg-darkBg items-center">
+    <nav className="fixed top-0 left-0 flex px-4 md:px-10 w-full py-2 placeholder:text-xs border-b-2 bg-white dark:bg-darkBg items-center z-50">
         <div className="flex h-full lg:w-1/2 items-center">
             <div className="flex h-full">
                 <Image
@@ -86,10 +86,10 @@ const NavBar = () => {
             }
         </div>
         <div className="flex lg:hidden" >
-            <Menu className="ml-4" onClick={()=>setShowNav((prev)=>!prev)}/>
-                 <div className={`absolute top-16 right-0 -mt-1 rounded-tl-xl rounded-bl-xl transition-transform will-change-transform origin-right duration-500 ${showNav ? 'scale-x-0': '' }  bg-slate-400 dark:bg-black block w-full sm:w-[40%] md:w-[30%]`}>
+            <Menu className="ml-4" onClick={()=>setShowNav((prev)=>!prev)} />
+                 <div className={`absolute top-16 right-0 -mt-1 rounded-tl-xl rounded-bl-xl transition-transform will-change-transform origin-right duration-500 ${showNav ? '': 'scale-x-0' }  bg-slate-400 dark:bg-black block w-full sm:w-[40%] md:w-[30%]`}>
                     <div className="flex-row justify-end text-end my-10 test-center">
-                        <h2 className="text-2xl mr-4 md:mr-10 font-bold">
+                        <h2 className="text-2xl border-b-2 pr-4 ml-32 sm:ml-20 md:mr-10 font-bold">
                             Menu
                         </h2>
                         { Object.keys(links).map((key: string, index) => (

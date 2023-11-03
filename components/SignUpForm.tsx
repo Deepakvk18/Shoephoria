@@ -7,92 +7,107 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import Image from "next/image"
 import { Input } from "@/components/ui/input"
-import { Facebook } from "lucide-react"
+import SocialSigninButtons from "./SocialSigninButtons"
+import Link from "next/link"
+import { Eye, EyeOff } from "lucide-react"
+import { useState } from "react"
+import { useMutation } from "react-query"
+import { signUpEmailMutation } from "@/queries/authqueries"
+import { useRouter } from "next/navigation"
 
 const SignUpForm = () => {
 
+    const [showPassword, setShowPassword] = useState(false)
+    const signUpMutation = useMutation({
+                                mutationFn: signUpEmailMutation
+                            })
+    const router = useRouter()
+
     const signUpSchema =  z.object({
-        email: z.string().email(),
-        password: z.string().min(8),
-        confirmPassword: z.string().min(8),
+        email: z.string().email('Please enter a valid email'),
+        password: z.string().min(8, 'Password must be at least 8 characters'),
+        re_password: z.string().min(8, 'Password must be at least 8 characters'),
+    }).refine(data => data.password === data.re_password, {
+        message: 'Passwords do not match',
+        path: ['re_password']
     })
+
 
     const signUpForm = useForm<z.infer<typeof signUpSchema>>({
         resolver: zodResolver(signUpSchema),
         defaultValues: {
             email: '',
             password: '',
-            confirmPassword: '',
+            re_password: '',
         }
     })
 
+    const onSubmit = (data: z.infer<typeof signUpSchema>) => {        
+        signUpMutation.mutate(data)
+        if (signUpMutation.isSuccess)
+            router.push('/')
+    }
+
   return (
-    <div className="flex">
+    <div className="flex flex-col">
         <Form {...signUpForm}>
-        <form onSubmit={()=>{}} className="space-y-8">
+        <form onSubmit={signUpForm.handleSubmit(onSubmit)} className="space-y-3 w-full md:min-w-[300px]">
             <FormField
             control={signUpForm.control}
             name="email"
             render={({ field }) => (
-                <FormItem>
+                <FormItem className="">
                 <FormControl>
-                    <Input className="" placeholder="Enter your email" {...field} />
+                    <Input className={`rounded-sm ${signUpForm.formState?.errors?.email ? 'border-red-500 dark:border-orange-400': ''}`} placeholder="Enter your email" {...field} />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="dark:text-orange-400 text-xs"/>
                 </FormItem>
             )}
             />
+            <div className="relative">
+              <FormField
+              control={signUpForm.control}
+              name="password"
+              render={({ field }) => (
+                  <FormItem>
+                  <FormControl>
+                      <Input type={`rounded-sm ${showPassword ? 'text': "password"}`} className={`${signUpForm.formState?.errors?.password ? 'border-red-500 dark:border-orange-400': ''}`}  placeholder="Enter your Password" {...field} />
+                  </FormControl>
+                  <FormMessage className="dark:text-orange-400 text-xs"/>
+                  </FormItem>
+              )}
+              />
+              <div className="absolute right-3 top-2 z-10">
+                { showPassword 
+                  ? <EyeOff onClick= {() => setShowPassword(false)} className= "cursor-pointer"/>
+                  : <Eye onClick={()=>setShowPassword(true)} className="cursor-pointer" /> }
+              </div>
+            </div>
             <FormField
             control={signUpForm.control}
-            name="password"
+            name="re_password"
             render={({ field }) => (
                 <FormItem>
-                <FormControl>
-                    <Input className="w-full md:min-w-[300px]" placeholder="Enter your Password" {...field} />
-                </FormControl>
-                <FormMessage />
+                    <FormControl>
+                        <Input type="password" className={`rounded-sm ${signUpForm.formState?.errors?.re_password ? 'border-red-500 dark:border-orange-400': ''}`} placeholder="Confirm Password" {...field} />
+                    </FormControl>
+                    <FormMessage className="dark:text-orange-400 text-xs"/>
                 </FormItem>
             )}
             />
-            <FormField
-            control={signUpForm.control}
-            name="confirmPassword"
-            render={({ field }) => (
-                <FormItem>
-                <FormControl>
-                    <Input placeholder="Confirm Password" {...field} />
-                </FormControl>
-                <FormMessage />
-                </FormItem>
-            )}
-            />
-            <div className="flex flex-col w-full justify-between items-center">
-                
-                <Button className="w-full" type="submit">Signup with Email</Button>
-
-                <div className="flex my-5 w-full justify-between text-white font-lato">
-                    <Button className="py-2 bg-red-600 w-1/2 mx-1 text-white" variant={'secondary'}> 
-                        <Image 
-                            src='/googleIcon.png' 
-                            alt='google' 
-                            width={24}
-                            height={24}
-                        />
-                        <span className="mx-2">Google</span>
-                    </Button>
-                    <Button className="py-2 w-1/2 bg-[#0866ff] mx-1" variant={'ghost'}> 
-                        <Facebook className="scale-125" fill='white' strokeWidth={0}/>
-                        <span className="mx-2">Facebook</span>
-                    </Button>
+            <div className="flex flex-col w-full items-center">
+                <div className="w-full text-xs my-2 font-didact_gothic text-left">
+                Already have an account?
+                    <Link className="hover:underline text-blue-700 dark:text-blue-300" href="/login"> Login</Link>
                 </div>
+                <Button className="w-full rounded-sm" type="submit">Signup with Email</Button>
+
+                <SocialSigninButtons />
             </div>
         </form>
             

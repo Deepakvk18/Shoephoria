@@ -5,6 +5,8 @@ import './globals.css'
 import NavBar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { UserProvider } from '@/components/UserProvider'
+import TanstackProvider from '@/components/TanstackProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,9 +25,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem
           disableTransitionOnChange
         >
-          <NavBar />
-          {children}
-          <Footer />
+          <TanstackProvider>
+            <UserProvider >
+              <NavBar />
+              {children}
+              <Footer />
+            </UserProvider>
+          </TanstackProvider>
         </ThemeProvider>
       </body>
     </html>

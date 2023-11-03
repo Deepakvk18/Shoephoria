@@ -3,21 +3,95 @@
 # from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 # from dj_rest_auth.registration.views import SocialLoginView
 # from django.contrib.auth.models import User
-from rest_framework import viewsets
+from django.conf import settings
+from rest_framework.request import Request
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+from rest_framework import viewsets, status
 from .serializers import *
 
-# Create your views here.
-# class GoogleLogin(SocialLoginView):
-#     """"""
-#     adapter_class = GoogleOAuth2Adapter
-#     client_class = OAuth2Client
-#     callback_url = 'http://localhost:3000/accounts/google/login/callback/'
-#
-# class FacebookLogin(SocialLoginView):
-#     """"""
-#     adapter_class = FacebookOAuth2Adapter
-#     client_class = OAuth2Client
-#     callback_url = 'http://localhost:3000/accounts/facebook/login/callback/'
+class CustomTokenObtainPairView(TokenObtainPairView):
+
+    def post(self, request: Request, *args, **kwargs) -> Response:
+        response = super().post(request, *args, **kwargs)
+
+        if response.status_code == 200:
+            access_token = response.data.get('access')
+            refresh_token = response.data.get('refresh')
+
+            response.set_cookie('access',
+                                access_token,
+                                max_age=settings.AUTH_COOKIE_MAX_AGE,
+                                path=settings.AUTH_COOKIE_PATH,
+                                secure=settings.AUTH_COOKIE_SECURE,
+                                httponly=settings.AUTH_COOKIE_HTTP_ONLY,
+                                samesite=settings.AUTH_COOKIE_SAME_SITE
+                                )
+            response.set_cookie('refresh',
+                                refresh_token,
+                                max_age=settings.AUTH_COOKIE_REFRESH_MAX_AGE,
+                                path=settings.AUTH_COOKIE_PATH,
+                                secure=settings.AUTH_COOKIE_SECURE,
+                                httponly=settings.AUTH_COOKIE_HTTP_ONLY,
+                                samesite=settings.AUTH_COOKIE_SAME_SITE
+                                )
+        return response
+
+class CustomTokenRefreshView(TokenRefreshView):
+
+    _serializer_class = None
+
+    def post(self, request: Request, *args, **kwargs) -> Response:
+
+        refresh_token = request.COOKIES.get('refresh')
+        if refresh_token:
+            request.data['refresh'] = refresh_token
+        response = super().post(request, *args, **kwargs)
+
+        if response.status_code == 200:
+            access_token = response.data.get('access')
+            refresh_token = response.data.get('refresh')
+
+            response.set_cookie('access',
+                                access_token,
+                                max_age=settings.AUTH_COOKIE_MAX_AGE,
+                                path=settings.AUTH_COOKIE_PATH,
+                                secure=settings.AUTH_COOKIE_SECURE,
+                                httponly=settings.AUTH_COOKIE_HTTP_ONLY,
+                                samesite=settings.AUTH_COOKIE_SAME_SITE
+                                )
+            response.set_cookie('refresh',
+                                refresh_token,
+                                max_age=settings.AUTH_COOKIE_REFRESH_MAX_AGE,
+                                path=settings.AUTH_COOKIE_PATH,
+                                secure=settings.AUTH_COOKIE_SECURE,
+                                httponly=settings.AUTH_COOKIE_HTTP_ONLY,
+                                samesite=settings.AUTH_COOKIE_SAME_SITE
+                                )
+        return response
+
+
+class CustomTokenVerifyView(TokenVerifyView):
+
+    serializer_class = None
+
+    def post(self, request: Request, *args, **kwargs) -> Response:
+
+        access_token = request.COOKIES.get('access')
+        if access_token:
+            request.data['token'] = access_token
+
+        return super().post(request, *args, **kwargs)
+
+class LogoutView(APIView):
+
+    def post(self, request, *args, **kwargs):
+        response = Response(status=status.HTTP_204_NO_CONTENT)
+        response.delete_cookie('access')
+        response.delete_cookie('refresh')
+        return response
+
 
 class UserViewSet(viewsets.ModelViewSet):
 

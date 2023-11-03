@@ -23,7 +23,7 @@ from users.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
+    path('auth/', include('users.urls')),
     re_path(r'^auth/', include('djoser.social.urls')),
     path('address/', AddressViewSet.as_view({ 'get': 'list', 'get': 'retrieve', 'post': 'create', 'patch': 'update', 'delete': 'destroy' }), name='address'),
     path('address-type/', AddressTypeViewSet.as_view({ 'get': 'list'}), name='address-type'),
